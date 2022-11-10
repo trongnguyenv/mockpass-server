@@ -1,4 +1,4 @@
-name: ci
+name: CI
 on:
   push:
     branches: [ main ]
@@ -39,6 +39,7 @@ jobs:
       - run: npm run lint
   
   docker:
+    name: Deploy to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -82,4 +83,4 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-           ./deploy.sh
+           ./build.sh
