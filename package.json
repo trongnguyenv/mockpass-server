@@ -1,0 +1,77 @@
+{
+  "name": "@opengovsg/mockpass",
+  "version": "3.0.3",
+  "description": "A mock SingPass/CorpPass server for dev purposes",
+  "main": "index.js",
+  "bin": {
+    "mockpass": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon",
+    "cz": "git-cz",
+    "lint": "eslint lib",
+    "lint-fix": "eslint --fix lib",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opengovsg/mockpass.git"
+  },
+  "keywords": [
+    "mock",
+    "test",
+    "singpass",
+    "corppass"
+  ],
+  "author": "Government Technology Agency of Singapore (https://www.tech.gov.sg)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/opengovsg/mockpass/issues"
+  },
+  "homepage": "https://github.com/opengovsg/mockpass#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^16.0.0",
+    "expiry-map": "^2.0.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.11",
+    "morgan": "^1.9.1",
+    "mustache": "^4.2.0",
+    "node-jose": "^2.0.0",
+    "uuid": "^9.0.0",
+    "xpath": "0.0.32"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/travis-cli": "^17.1.2",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "nodemon": "^2.0.4",
+    "pinst": "^3.0.0",
+    "prettier": "^2.0.5"
+  },
+  "lint-staged": {
+    "**/*.(js|jsx|ts|tsx)": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
