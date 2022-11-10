@@ -1,12 +1,23 @@
 name: ci
 on:
   push:
+    branches: [ main ]
   pull_request:
     types: [opened, reopened]
 jobs:
   ci:
     name: CI
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
+    env:
+      MOCKPASS_PORT: 5156
+      SHOW_LOGIN_PAGE: true
+      MOCKPASS_NRIC: S8979373D
+      SIGN_ASSERTION: false
+      ENCRYPT_ASSERTION: false
+      SIGN_RESPONSE: false
+      RESOLVE_ARTIFACT_REQUEST_SIGNED: false
+      ENCRYPT_MYINFO: false
+      SERVICE_PROVIDER_MYINFO_SECRET: ${{ secrets.SERVICE_PROVIDER_MYINFO_SECRET }}
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
@@ -23,5 +34,6 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - run: npm ci
+      - run: npm install
       - run: npx lockfile-lint --type npm --path package-lock.json --validate-https --allowed-hosts npm
       - run: npm run lint
